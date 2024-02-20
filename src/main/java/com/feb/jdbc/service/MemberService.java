@@ -17,14 +17,14 @@ public class MemberService {
 	
 	
 	
-	
+	//회원정보를 가져와서 반환함.
 	public Member findMember(String memberId) {
 		
 		Member result = memberDao.findMember(memberId);
 		return result;
 	}
 	
-	
+	//입력받은 회원정보를 알맞게 수정한 다음에 전송.
 	public int insertMember(HashMap<String,String> params) {
 		int result = 0;
 		Sha512Encoder sha512 = Sha512Encoder.getInstance();

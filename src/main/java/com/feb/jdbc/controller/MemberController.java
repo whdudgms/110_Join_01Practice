@@ -21,6 +21,7 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	// 처음에 그냥 기본 요청페이지용으로 만
 	@GetMapping("/hello.do")
 	public ModelAndView hello(HttpServletResponse response) {
 		ModelAndView mv = new ModelAndView();
@@ -30,6 +31,7 @@ public class MemberController {
 		return mv;
 	}
 	
+	//가입하는 Controller
 	@PostMapping("/join.do")
 	public ModelAndView join(@RequestParam HashMap<String, String> params,
 			HttpServletResponse response) {
@@ -49,7 +51,7 @@ public class MemberController {
 	}
 	
 	
-	
+	//로그인하기 위해서 구현하는 Controller
 	@PostMapping("login.do")
 	public ModelAndView login(@RequestParam HashMap<String,String> params, HttpServletResponse response) {
 		ModelAndView mv = new ModelAndView();

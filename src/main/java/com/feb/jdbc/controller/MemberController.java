@@ -51,17 +51,13 @@ public class MemberController {
 	}
 	
 	
-	//로그인하기 위해서 구현하는 Controller
-	@PostMapping("login.do")
+		@PostMapping("login.do")
 	public ModelAndView login(@RequestParam HashMap<String,String> params, HttpServletResponse response) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("login");
-		// 로그인 정보 전송 로그인 정보랑 비교 service에서 할까??  그냥 controller에서 처리하는 걸로 
-		Member equMember = memberService.findMember(params.get("memberId"));
-		Sha512Encoder encoder = Sha512Encoder.getInstance();
-		String inputpw = encoder.getSecurePassword(params.get("passwd"));
+
 		
-		if(inputpw.equals(equMember.getPasswd())) {
+		if(memberService.login(params)) {
 			mv.addObject("resultMsg","loginOk");
 		}else {
 			mv.addObject("resultMsg","loginOk");

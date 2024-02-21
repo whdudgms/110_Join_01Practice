@@ -14,16 +14,16 @@
 	href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
 <!-- ===== CSS 주의할점 : /resources/css/style.css resource안에 css파일 안에 style.css를 넣는다.  ===== -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 
-</head>	
 <script>
 
 	var resultMsg = '${resultMsg}';
 	alert(resultMsg);
 
 </script>
+</head>	
+
 <body>
 <!-- partial:index.partial.html -->
 <div class="login-page">

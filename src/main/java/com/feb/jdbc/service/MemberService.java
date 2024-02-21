@@ -18,10 +18,16 @@ public class MemberService {
 	
 	
 	//회원정보를 가져와서 반환함.
-	public Member findMember(String memberId) {
+	public boolean login(HashMap<String,String> params) {
+		Sha512Encoder encoder = Sha512Encoder.getInstance();
+		String inputPw = encoder.getSecurePassword(params.get("passwd"));
 		
-		Member result = memberDao.findMember(memberId);
-		return result;
+		Member result = memberDao.findMember(params.get("memberId"));		
+		if(result.getPasswd().equals(inputPw)) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	//입력받은 회원정보를 알맞게 수정한 다음에 전송.
